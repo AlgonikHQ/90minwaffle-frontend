@@ -1,0 +1,192 @@
+/* nav-sidebar.css — drawer + items, for non-home pages */
+.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.25s ease}
+.drawer-backdrop.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:280px;max-width:85vw;background:var(--bg,#0f1419);z-index:999;transform:translateX(-100%);transition:transform 0.28s cubic-bezier(.4,0,.2,1);overflow-y:auto;border-right:1px solid var(--border,#2a3340);box-shadow:2px 0 24px rgba(0,0,0,0.4)}
+.drawer.open{transform:translateX(0)}
+.drawer-hdr{padding:20px 18px 14px;border-bottom:1px solid var(--border,#2a3340);font-weight:700;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted,#7a8896)}
+.drawer-item{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.15s;user-select:none}
+.drawer-item:hover{background:rgba(255,255,255,0.04)}
+.drawer-item.active{background:rgba(255,255,255,0.08);padding-left:15px;border-left-width:3px;border-left-style:solid}
+.drawer-item-label{font-size:0.95rem;display:flex;align-items:center;gap:10px}
+.header-logo.tappable{cursor:pointer}
+
+.drawer-hdr{display:flex;align-items:center;justify-content:space-between}
+.drawer-close{background:none;border:0;color:var(--text-muted,#7a8896);padding:6px;margin:-6px;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:background 0.15s,color 0.15s}
+.drawer-close:hover,.drawer-close:active{background:rgba(255,255,255,0.06);color:var(--text,#fff)}
+
+/* Timezone label on kickoff times */
+.tz-label {
+  font-size: 0.65em;
+  opacity: 0.55;
+  font-weight: 400;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+/* Pill scroller — fade edges + arrow buttons */
+.scroller-wrap{position:relative;}
+.scroller-wrap::before,.scroller-wrap::after{content:"";position:absolute;top:0;bottom:0;width:32px;z-index:2;pointer-events:none;transition:opacity 0.2s;}
+.scroller-wrap::before{left:0;background:linear-gradient(to right,var(--bg,#0f1419) 0%,transparent 100%);}
+.scroller-wrap::after{right:0;background:linear-gradient(to left,var(--bg,#0f1419) 0%,transparent 100%);}
+.scroller-wrap.fade-left::before{opacity:1;}.scroller-wrap:not(.fade-left)::before{opacity:0;}
+.scroller-wrap.fade-right::after{opacity:1;}.scroller-wrap:not(.fade-right)::after{opacity:0;}
+.scroll-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:var(--bg-elev,#1a2232);border:1px solid var(--border,#2a3340);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.2s;color:var(--text-muted,#7a8896);}
+.scroll-arrow.visible{opacity:1;pointer-events:auto;}
+.scroll-arrow:hover{background:var(--bg-card,#1e2a3a);color:var(--text,#fff);}
+.scroll-arrow.arr-left{left:4px;}.scroll-arrow.arr-right{right:4px;}
+.scroll-arrow svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ── Desktop layout ≥1024px ── */
+
+
+/* Header inline nav — hidden on mobile, shown on desktop */
+.header-nav{display:none;}
+.header-nav-item{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;color:var(--text-muted,#7a8896);text-decoration:none;font-size:0.85rem;font-weight:600;transition:background 0.15s,color 0.15s;white-space:nowrap;}
+.header-nav-item:hover{background:rgba(255,255,255,0.06);color:var(--text,#fff);}
+.header-nav-item.active{color:var(--accent,#3DDC84);background:var(--accent-dim,rgba(61,220,132,0.1));}
+.header-nav-item svg{width:16px;height:16px;flex-shrink:0;}
+
+/* ── Flag emoji — force emoji font on all platforms ── */
+.flag-emoji{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif;font-style:normal;}
+
+/* ── Back-to-top button ── */
+.back-to-top{position:fixed;bottom:80px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--bg-elev,#1a2232);border:1px solid var(--border,#2a3340);color:var(--text-muted,#7a8896);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.25s,transform 0.25s;z-index:90;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+.back-to-top.visible{opacity:1;pointer-events:auto;}
+.back-to-top:hover{background:var(--bg-card,#1e2a3a);color:var(--text,#fff);transform:translateY(-2px);}
+.back-to-top svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+@media(min-width:1024px){.back-to-top{bottom:24px;right:24px;}}
+
+/* ── Page title bar ── */
+.page-title-bar{padding:10px 16px 2px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-dim,#4a5568);}
+@media(min-width:1024px){.page-title-bar{max-width:720px;margin:0 auto;padding:12px 24px 2px;}}
+
+/* ── Hide drawer trigger on desktop — header nav handles navigation ── */
+@media(min-width:1024px){
+  .header-logo.tappable{pointer-events:none;cursor:default;}
+  a.header-logo[onclick]{pointer-events:none;cursor:default;}
+}
+
+/* ── Burger button ── */
+.burger-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:none;border:none;cursor:pointer;color:var(--text-muted,#7a8896);flex-shrink:0;border-radius:8px;transition:background 0.15s,color 0.15s;padding:0;}
+.burger-btn:hover{background:rgba(255,255,255,0.06);color:var(--text,#fff);}
+
+/* ── Centred logo ── */
+.header-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;pointer-events:none;}
+.header-logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text,#fff);pointer-events:auto;}
+.header-logo-link img{height:28px;width:28px;border-radius:6px;}
+.header-logo-text{font-weight:800;font-size:1rem;letter-spacing:-0.02em;}
+.header{position:relative;}
+
+/* ── Back to top ── */
+.back-to-top{position:fixed;bottom:80px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--bg-elev,#1a2232);border:1px solid var(--border,#2a3340);color:var(--text-muted,#7a8896);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.25s,transform 0.25s;z-index:95;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+.back-to-top.visible{opacity:1;pointer-events:auto;}
+.back-to-top:hover{color:var(--text,#fff);transform:translateY(-2px);}
+.back-to-top svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+@media(min-width:1024px){.back-to-top{bottom:24px;right:24px;}}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:var(--nav-h,64px);display:flex;align-items:stretch;background:var(--bg-elev,#1a2232);border-top:1px solid var(--border,#2a3340);z-index:100;padding-bottom:env(safe-area-inset-bottom);}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text-dim,#7a8896);text-decoration:none;cursor:pointer;transition:color 0.15s;}
+.nav-item.active{color:var(--text,#fff);}
+.nav-item svg{width:27px;height:27px;}
+.nav-item span{font-size:0.7rem;font-weight:500;}
+
+/* Unified bottom nav — used by home, matches, me, tournaments */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;height:var(--nav-h,64px);display:flex;align-items:stretch;background:var(--bg-elev,#1a2232);border-top:1px solid var(--border,#2a3340);z-index:100;padding-bottom:env(safe-area-inset-bottom,16px)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform;}
+.bottom-nav .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text-dim,#7a8896);text-decoration:none;cursor:pointer;transition:color 0.15s;}
+.bottom-nav .nav-item.active{color:var(--text,#fff);}
+.bottom-nav .nav-item svg{width:27px;height:27px;}
+.bottom-nav .nav-item span{font-size:0.7rem;font-weight:500;}
+
+/* Drawer count badge - match home page pill styling across all pages */
+.drawer-count{font-size:0.75rem;color:var(--text-muted,#7a8896);background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:10px;min-width:24px;text-align:center}
+.drawer-item.active .drawer-count{background:rgba(255,69,0,0.2);color:#FF4500}
+
+/* ── 90minWaffle UI v4 additions ── */
+
+/* Watermark background */
+body {
+  background-image: url('/img/wm_bg.png');
+  background-size: 55%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+@media (max-width: 768px) {
+  body { background-size: 85%; }
+}
+@media (min-width: 1024px) {
+  body { background-size: 35%; }
+}
+
+/* ── Option A header wordmark ── */
+.header-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  gap: 2px;
+}
+.header-wordmark-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  line-height: 1;
+}
+.header-wordmark-main {
+  font-weight: 900;
+  font-size: 17px;
+  color: var(--text, #F2F2F0);
+  letter-spacing: -0.03em;
+}
+.header-wordmark-accent {
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--accent, #3DDC84);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.header-wordmark-sub {
+  font-size: 9px;
+  color: var(--text-dim, #5C6562);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Override old plain text logo with new wordmark */
+.header-logo-text { display: none !important; }
+.header-logo-link img { display: none !important; }
+.header-logo-link::after,
+.header-center .header-logo-link::after {
+  display: none;
+}
+
+/* ── Nav bar — PWA safe area fix ── */
+/* Override any hardcoded height:60px pages */
+.bottom-nav, .nav {
+  min-height: 64px !important;
+}
+.bottom-nav .nav-item span,
+.nav .nav-item span,
+.nav-item span {
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+}
+.bottom-nav .nav-item svg,
+.nav .nav-item svg,
+.nav-item svg {
+  width: 27px !important;
+  height: 27px !important;
+}
+
+/* ── Staging badge — keep subtle ── */
+.staging-badge {
+  font-size: 0.55rem !important;
+  padding: 2px 5px !important;
+  border-radius: 4px !important;
+  opacity: 0.7;
+}
+
+/* SITE_FIXES_20261011 - one top bar colour on every page, matching theme-color */
+.header,.fxh,.top-bar{background:var(--bg,#0B0F0E)!important}

@@ -1,0 +1,23 @@
+/* MOBILE_NAV_20261015: app-style bottom bar, below 1024px only */
+@media(max-width:1023px){
+nav.bottom-nav[data-m]{display:flex!important;align-items:stretch;justify-content:space-around;height:calc(64px + env(safe-area-inset-bottom,0px))!important;min-height:0!important;padding:0 6px env(safe-area-inset-bottom,0px)!important;box-sizing:border-box!important;background:rgba(11,15,14,.92)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08)!important}
+nav.bottom-nav[data-m] .nav-item,nav.bottom-nav[data-m] .mn-more{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;position:relative;color:var(--text-muted,#9CA3A0);text-decoration:none;font-family:inherit;font-size:.7rem;font-weight:600;line-height:1;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+nav.bottom-nav[data-m] svg{width:24px;height:24px;flex-shrink:0}
+nav.bottom-nav[data-m] .active{color:var(--accent,#3DDC84)}
+nav.bottom-nav[data-m] .active::before{content:"";position:absolute;top:0;width:26px;height:3px;border-radius:0 0 3px 3px;background:var(--accent,#3DDC84)}
+#mn-back{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .2s;z-index:1190}
+#mn-sheet{position:fixed;left:0;right:0;bottom:0;z-index:1200;transform:translateY(105%);transition:transform .25s ease;background:var(--bg-card,#141b18);border-top:1px solid var(--border,#2a3340);border-radius:20px 20px 0 0;padding:10px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+#mn-sheet .mn-grab{width:40px;height:4px;border-radius:4px;background:rgba(255,255,255,.18);margin:0 auto 14px}
+#mn-sheet .mn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#mn-sheet .mn-grid a,#mn-sheet .mn-grid button{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 6px;border-radius:14px;background:var(--bg,#0B0F0E);border:1px solid var(--border,#1f2a26);color:var(--text,#F2F2F0);text-decoration:none;font:700 .8rem/1.1 inherit;font-family:inherit;cursor:pointer}
+#mn-sheet .mn-grid svg{width:26px;height:26px;color:var(--accent,#3DDC84)}
+body.mn-open #mn-back{opacity:1;pointer-events:auto}
+body.mn-open #mn-sheet{transform:none}
+}
+@media(min-width:1024px){#mn-back,#mn-sheet{display:none!important}}
+/* v2: no flash of the old bar, page padding, reveal fallback */
+@media(max-width:1023px){
+nav.bottom-nav:not([data-m]){visibility:hidden;animation:mnShow 0s 2.5s forwards}
+@keyframes mnShow{to{visibility:visible}}
+body.has-mn{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))!important}
+}

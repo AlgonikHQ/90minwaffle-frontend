@@ -1,0 +1,23 @@
+/* ME_CLEAN_20261015 */
+.page{padding:14px!important;gap:14px!important;-webkit-tap-highlight-color:transparent}
+.page .card{border-radius:16px;padding:16px 18px;border-color:var(--border,#1f2a26);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.profile-hero{border-radius:20px!important;padding:26px 18px!important;background:linear-gradient(160deg,rgba(61,220,132,.16),var(--bg-card,#141b18) 58%)!important;border:1px solid rgba(61,220,132,.22)!important}
+.profile-avatar{width:84px!important;height:84px!important;box-shadow:0 0 0 5px rgba(61,220,132,.12),0 8px 24px rgba(61,220,132,.18)}
+.profile-username{font-size:1.45rem!important;margin-bottom:6px!important}
+.profile-followed{margin-top:4px}
+.trophy-grid{gap:10px!important}
+.trophy-item{border-radius:12px!important;border:1px solid var(--border,#1f2a26);transition:border-color .15s,transform .15s}
+.trophy-item:not(.trophy-locked):hover{border-color:var(--accent,#3DDC84);transform:translateY(-1px)}
+.page button,.page a{-webkit-tap-highlight-color:transparent}
+@media(max-width:1023px){
+.page{padding-bottom:8px!important}
+.profile-hero{padding:22px 16px!important}
+}
+@media(min-width:1100px){
+#page.me-two{max-width:1180px!important;display:grid!important;grid-template-columns:340px minmax(0,1fr);column-gap:20px;row-gap:0!important;align-items:start;padding:28px!important}
+#page.me-two>*{grid-column:2;margin-bottom:14px}
+#page.me-two>.profile-hero{grid-column:1;grid-row:1/span 40;position:sticky;top:88px;margin-bottom:0}
+#page.me-two .trophy-grid{grid-template-columns:repeat(3,1fr)!important}
+}
+/* ME_ONECOL_20261025: the left profile slot is no longer used (card hidden), so the Me page uses the full width on desktop */
+.me-two{grid-template-columns:minmax(0,1fr)!important}.me-two>*{grid-column:1!important}.me-two>.profile-hero{grid-row:auto!important}

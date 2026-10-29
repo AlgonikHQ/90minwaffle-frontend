@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /reset.html
+Disallow: /api/
+Disallow: /search/
+Disallow: /bets/
+Disallow: /founding-insider/
+# SEO_20261024: not pages - don't spend visits here
+Disallow: /poll/
+Disallow: /community/
+Disallow: /profile/
+Disallow: /recovery/
+Disallow: /streak/
+Disallow: /trophy/
+Disallow: /leaderboard
+Disallow: /cdn-cgi/
+Disallow: /matches/?
+Disallow: /club/?
+Disallow: /player/?
+
+Sitemap: https://90minwaffle.co.uk/sitemap_index.xml
+Sitemap: https://90minwaffle.co.uk/sitemap-news-sections.xml

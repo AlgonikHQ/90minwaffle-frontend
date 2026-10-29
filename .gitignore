@@ -1,0 +1,11 @@
+.env
+.env.*
+*.pem
+*.key
+*.db
+*.log
+*.bak*
+*.tar.gz
+*.zip
+data/
+__pycache__/

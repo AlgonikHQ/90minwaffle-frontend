@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head><script>/*THEME_LOAD_20261010*/try{var _t=localStorage.getItem("theme");if(_t)document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0B0F0E">
+<meta name="description" content="How FootballIQ's football model works in plain English: match probabilities, Season Sims, Form vs Expected, Streak Screener, BTTS and Over 2.5 explained. Free.">
+<meta property="og:title" content="How FootballIQ Works: Football Model &amp; Tools Explained">
+<meta property="og:url" content="https://90minwaffle.co.uk/footballiq/how-it-works/">
+<meta property="og:image" content="https://90minwaffle.co.uk/img/icon-512.png">
+<title>Page not found | 90minWaffle</title>
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192-v2.png">
+<link rel="stylesheet" href="/css/nav-sidebar.css?v=8">
+<style>
+:root{--bg:#0B0F0E;--bg-elev:#14191A;--bg-card:#181E20;--border:rgba(255,255,255,0.06);--border-strong:rgba(255,255,255,0.12);--text:#F2F2F0;--text-muted:#9CA3A0;--text-dim:#5C6562;--accent:#3DDC84;--accent-dim:rgba(61,220,132,0.15);--danger:#E5484D;--warn:#FACC15;--accent-cyan:#06B6D4;--header-h:72px;--nav-h:64px;--radius:14px}
+[data-theme="light"]{--bg:#FAFAF9;--bg-elev:#FFFFFF;--bg-card:#FFFFFF;--border:rgba(0,0,0,0.06);--text:#0B0F0E;--text-muted:#4F5552;--text-dim:#8B918E;--accent:#16A34A;--accent-dim:rgba(22,163,74,0.12);--danger:#DC2626;--warn:#CA8A04}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;min-height:100vh;padding-bottom:calc(var(--nav-h) + 24px)}
+.header{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);height:var(--header-h);display:flex;align-items:center;padding:0 16px;gap:12px}
+.header-back{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:600}
+.header-back b{color:var(--accent)}
+.header-title{font-size:1.1rem;font-weight:700;flex:1}
+.header-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-dim);color:var(--accent);padding:3px 8px;border-radius:6px}
+.page{padding:16px;max-width:760px;margin:0 auto}
+.section-title{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin:22px 0 10px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex:none;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--bg-card);color:var(--text-muted);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+.tab-btn.active{background:var(--accent-dim);color:var(--accent);border-color:transparent}
+.meta{font-size:.72rem;color:var(--text-muted);margin:0 0 10px;line-height:1.5}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.78rem;min-width:540px}
+th{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);font-weight:700;padding:10px 6px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+.tl{text-align:left}
+td.team{font-weight:600;position:sticky;left:0;background:var(--bg-card);z-index:1}
+.dim{color:var(--text-dim)}.b{font-weight:700}
+td.pc{position:relative;min-width:64px}
+td.pc .bar{position:absolute;right:2px;top:5px;bottom:5px;border-radius:4px;opacity:.25}
+td.pc span{position:relative}
+.bar.good{background:var(--accent)}.bar.bad{background:var(--danger)}.bar.mid{background:var(--warn)}
+.fx{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.fx-teams{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:.85rem;margin:4px 0 8px}
+.pbar{display:flex;height:22px;border-radius:6px;overflow:hidden;font-size:.68rem;font-weight:700}
+.pbar div{display:flex;align-items:center;justify-content:center;min-width:30px;color:#0B0F0E}
+.ph{background:var(--accent)}.pd{background:var(--border-strong)}.pd{color:var(--text)}.pa{background:var(--accent-cyan)}
+.small{font-size:.72rem}
+.note{font-size:.74rem;color:var(--text-muted);line-height:1.6;margin:20px 0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--bg-elev)}
+.note b{color:var(--text)}
+</style><style>
+.fx-intro h1{font-size:1.25rem;font-weight:800;margin:4px 0 6px}.fx-intro p{color:var(--text-muted);font-size:.84rem;line-height:1.45}
+#fx-upd{display:block;font-size:.66rem;color:var(--text-dim);margin:6px 0 12px}
+.ltabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:10px;scrollbar-width:none}.ltabs::-webkit-scrollbar{display:none}
+.ltab{flex:0 0 auto;padding:7px 12px;border-radius:999px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font-weight:700;font-size:.74rem;font-family:inherit;cursor:pointer}
+.ltab.on{background:var(--accent-dim);color:var(--accent);border-color:transparent}
+.fsort{display:flex;gap:6px;margin-bottom:8px}
+.fbtn{flex:1;padding:8px 0;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text-muted);font-weight:700;font-size:.72rem;font-family:inherit;cursor:pointer}
+.fbtn.on{background:var(--accent-dim);color:var(--accent);border-color:transparent}
+.ftab{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:6px}
+.ftab th{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);text-align:right;padding:6px 4px;font-weight:700}
+.ftab th:nth-child(2),.ftab td:nth-child(2){text-align:left}
+.ftab td{padding:9px 4px;border-top:1px solid var(--border);text-align:right;vertical-align:middle}
+.ftab td:first-child{color:var(--text-dim);font-size:.7rem}
+.frow{cursor:pointer}.tm{font-weight:700}.sub{display:block;margin-top:4px}
+.chip{display:inline-block;width:15px;height:15px;border-radius:4px;font-size:.55rem;line-height:15px;text-align:center;font-weight:800;color:#0B0F0E;margin-right:2px}
+.cW{background:#3DDC84}.cD{background:#9CA3A0}.cL{background:#E5484D;color:#fff}
+.pos{color:var(--accent);font-weight:800}.neg{color:var(--danger);font-weight:800}
+.fdet td{background:var(--bg-elev);text-align:left;padding:8px 10px}
+.gl{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:var(--text-muted);padding:3px 0}
+.empty{color:var(--text-muted);font-size:.8rem;padding:20px 0;text-align:center}
+</style><style>.fxh{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;gap:12px;padding:0 16px}.fxh-back{display:flex;align-items:center;gap:6px;color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:600}.fxh-back svg{color:var(--accent)}.fxh-title{flex:1;font-weight:700;font-size:1rem}.fxh-badge{font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-dim);color:var(--accent);padding:3px 8px;border-radius:6px}</style>
+
+
+<style>/*HIW*/.hiw h1{font-size:1.6rem;margin:6px 0 8px;line-height:1.2}.hiw h2{font-size:1.08rem;margin:26px 0 8px;color:var(--accent)}.hiw h3{font-size:.95rem;margin:14px 0 4px}
+.hiw p,.hiw li{font-size:.9rem;line-height:1.65}.hiw p{margin:0 0 10px}.hiw .muted{color:var(--text-muted)}.hiw ul{padding-left:18px;margin:6px 0 10px}
+.hiw .box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:10px 0}
+.hiw table{min-width:0;width:100%;font-size:.84rem}.hiw td,.hiw th{text-align:left;white-space:normal;padding:8px 6px}.hiw td:first-child{font-weight:700;width:36%}
+.hiw details{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:11px 13px;margin:8px 0}.hiw summary{font-weight:700;cursor:pointer;font-size:.92rem}.hiw details p{margin:8px 0 0}
+.hiw .warn{border-left:3px solid var(--danger,#e5484d);padding:10px 12px;background:var(--bg-card);border-radius:8px;font-size:.85rem}.hiw a{color:var(--accent)}
+.hiw .bar{display:flex;height:24px;border-radius:6px;overflow:hidden;font-size:.7rem;font-weight:800;color:#0B0F0E;margin:8px 0 4px}.hiw .bar span{display:flex;align-items:center;justify-content:center}</style>
+<link rel="stylesheet" href="/css/desktop-nav.css?v=1"><script src="/js/desktop-nav.js?v=21" defer></script><!-- ANALYTICS_20261018 --><script defer src="https://analytics.90minwaffle.co.uk/script.js" data-website-id="2ec62a13-ba3c-44fa-b6a2-dccc3a1f3ecb"></script><!-- /ANALYTICS --><script src="/js/scroll-keeper.js?v=2" defer></script><meta name="robots" content="noindex, follow"><link rel="stylesheet" href="/css/desktop-nav.css?v=1"><script src="/js/desktop-nav.js?v=21" defer></script><link rel="stylesheet" href="/css/nmw-theme.css?v=3"></head>
+<body>
+<header class="fxh"><a class="fxh-back" href="/footballiq/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>FootballIQ</a><span class="fxh-title">Not found</span><span class="fxh-badge">Model</span></header><div class="page hiw seo"><h1>Page not found</h1><p>That page has moved or never existed. It may be an old link, or a game or club page we have since updated.</p><p id="nf-hint" style="font-weight:600;color:#22d3ee"></p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:14px 0"><a href="/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">Homepage</b><br><span style="font-size:.8rem;color:#9fb1c7">Today's games, tips and stories</span></a><a href="/edges/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">90minWaffle</b><br><span style="font-size:.8rem;color:#9fb1c7">Every tip, every result</span></a><a href="/footballiq/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">FootballIQ</b><br><span style="font-size:.8rem;color:#9fb1c7">Predictions, stats and tools</span></a><a href="/preview/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">Match previews</b><br><span style="font-size:.8rem;color:#9fb1c7">Every upcoming game</span></a><a href="/matches/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">Scores</b><br><span style="font-size:.8rem;color:#9fb1c7">Live and today</span></a><a href="/footballiq/predicted-table/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">Predicted tables</b><br><span style="font-size:.8rem;color:#9fb1c7">Where every club will finish</span></a><a href="/footballiq/guides/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">Guides</b><br><span style="font-size:.8rem;color:#9fb1c7">BTTS, odds and xG explained</span></a><a href="/clubs/" style="display:block;padding:12px;border:1px solid rgba(34,211,238,.3);border-radius:12px;text-decoration:none;color:inherit"><b style="color:#22d3ee">Clubs</b><br><span style="font-size:.8rem;color:#9fb1c7">Find any club</span></a></div><p style="font-size:.85rem;color:#9fb1c7">If a link on our site sent you here, tell us at hello@90minwaffle.co.uk and we will fix it.</p></div><script>(function(){var p=location.pathname,h=document.getElementById("nf-hint"),m=[["/clubs/","Looking for a club? Try the club browser","/clubs/"],["/player","Looking for a player? Try player search","/players/"],["/preview/","Looking for a match preview? See all upcoming previews","/preview/"],["/footballiq/","Looking for FootballIQ? Start here","/footballiq/"],["/news/","Looking for news? See the latest stories","/news/"]];for(var i=0;i<m.length;i++)if(p.indexOf(m[i][0])===0){h.innerHTML='<a href="'+m[i][2]+'" style="color:#22d3ee">'+m[i][1]+" &rsaquo;</a>";break;}})();</script>
+<script src="/js/bottom-nav.js" defer></script>
+<script src="/js/social-footer.js?v=9" defer></script></body>
+</html>

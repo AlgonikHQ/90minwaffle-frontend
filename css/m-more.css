@@ -1,0 +1,9 @@
+@media(max-width:1023px){
+#sidebarHandle{display:none!important}
+#mn-sheet{max-height:84vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+#mn-sheet .mn-h{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim,#8a948f);margin:18px 4px 8px}
+#mn-sheet .mn-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#mn-sheet .mn-list button{display:flex;align-items:center;gap:10px;min-width:0;padding:12px;border-radius:12px;background:var(--bg,#0B0F0E);border:1px solid var(--border,#1f2a26);color:var(--text,#F2F2F0);font-family:inherit;font-size:.82rem;font-weight:600;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#mn-sheet .mn-list button svg{flex:none;width:18px;height:18px;color:var(--accent,#3DDC84)}
+#mn-sheet .mn-list button span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}

@@ -1,0 +1,147 @@
+/* THEME_20261012 shared theme, loaded last. Phones: pitch grid only. Desktop layout from 1100px. */
+:root{--nmw-rail:96px;--nmw-col:760px}
+body{background-image:linear-gradient(rgba(61,220,132,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(61,220,132,.035) 1px,transparent 1px);background-size:44px 44px}
+@media (min-width:1100px){
+body{padding-left:var(--nmw-rail);padding-bottom:24px}
+.header{left:var(--nmw-rail)}
+.bottom-nav{top:var(--header-h);bottom:0;left:0;right:auto;width:var(--nmw-rail);height:auto;flex-direction:column;justify-content:flex-start;align-items:center;gap:6px;padding:16px 0;border-top:0;border-right:1px solid var(--border)}
+.bottom-nav .nav-item{flex:0 0 auto;width:76px;padding:10px 0;border-radius:12px}
+.page{max-width:var(--nmw-col)}
+}
+/* THEME_V2_20261012 card and strip polish, staging preview */
+.card{border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.card-stripe{height:3px}
+.stats-row{gap:10px;padding:12px 12px 4px}
+.stat-card{border-radius:14px;background:linear-gradient(180deg,var(--bg-card),var(--bg-elev));min-width:84px;padding:12px 14px;box-shadow:0 4px 14px rgba(0,0,0,.22)}
+.stat-val{font-size:1.25rem;letter-spacing:-.01em}
+.stat-lbl{font-size:.6rem;letter-spacing:.09em}
+.pulse-wrap{background:linear-gradient(90deg,rgba(61,220,132,.07),transparent 45%),var(--bg-elev)}
+.section-label{letter-spacing:.14em}
+.chip{letter-spacing:.09em}
+.bottom-nav .nav-item.active{color:var(--accent)}
+@media (hover:hover){.card{transition:border-color .15s,transform .15s}.card:hover{border-color:rgba(61,220,132,.28);transform:translateY(-1px)}}
+@media (min-width:1100px){
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);max-width:var(--nmw-col);margin:0 auto;overflow:visible;padding:12px 12px 4px}
+.stats-row>a{display:block}
+.stats-row .stat-card{width:100%;box-sizing:border-box;min-width:0}
+}
+/* THEME_V3_20261013 phone top slimming, staging preview */
+@media (max-width:700px){
+#tournament-banner a>div{padding:8px 14px!important;gap:10px!important;border-radius:12px!important}
+#tournament-banner a>div>span{font-size:1.15rem!important}
+#personalisation-slot>div>div:first-child{padding:8px 12px 6px!important}
+#hook-fixture{padding:8px 12px!important;min-height:0!important}
+.stats-row{padding:8px 12px 2px}
+}
+
+/* THEME_V4_20261013: compact Following card + news images on phones */
+@media (max-width:700px){
+  /* News card images shorter */
+  .news-card img, .card-image, [style*="aspect-ratio"] {
+    max-height:140px !important;
+  }
+  img[style*="height:200px"] {
+    height:140px !important;
+  }
+  /* Following card → single row */
+  #personalisation-slot,
+  #personalisation-slot > div {
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    gap:8px !important;
+    padding:10px 12px !important;
+  }
+  #personalisation-slot .nmw-badge {
+    width:24px !important;
+    height:24px !important;
+  }
+  #hook-fixture {
+    flex:1 !important;
+    margin:0 !important;
+  }
+  #hook-fixture > div {
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:10px !important;
+    margin-bottom:0 !important;
+  }
+  #hook-fixture [style*="Next"] { display:none !important; }
+  .stats-row {
+    padding:6px 12px !important;
+    gap:6px !important;
+  }
+}
+
+/* THEME_V5_20261013: desktop sidebar layout */
+@media (min-width:1024px){
+  .desktop-layout {
+    display:flex;
+    gap:24px;
+    max-width:1120px;
+    margin:0 auto;
+    padding:20px 16px 85px;
+  }
+  .main-column {
+    flex:1;
+    min-width:0;
+  }
+  .sidebar-column {
+    width:320px;
+    flex-shrink:0;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .sidebar-card {
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+  }
+  .sidebar-heading {
+    font-size:0.8rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--text-dim);
+    margin:0 0 12px;
+  }
+  .sidebar-item {
+    font-size:0.85rem;
+    padding:6px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .stat-pair {
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .stat-label {
+    font-size:0.8rem;
+    color:var(--text-dim);
+  }
+  .stat-value {
+    font-weight:700;
+    color:var(--accent);
+  }
+  /* Reset page padding on desktop */
+  body {
+    padding:0;
+  }
+}
+
+/* THEME_V6_20261013: skeleton + data wiring */
+.poll-option:hover {
+  background:rgba(61,220,132,0.15) !important;
+}
+
+/* THEME_V7_20261013: readability polish */
+.stat-value { min-width:60px; text-align:right; }
+.poll-option { transition:transform 0.15s ease; }
+.poll-option:disabled { cursor:default; transform:none !important; }
+/* A11Y_START_20261023 */.chip-live{color:#ff7a7f!important}.lmp-live-pill{background:#c62f36!important;color:#fff!important}.team-badge-init{color:#e6edf6!important;background:#24304a!important}.edge-chip{color:#d0a8ff!important}.card>.chip{color:#e6edf6!important}html body .tip-fixture-row .tip-fixture span.vs,html body .tip-fixture .vs{color:#8a97a3!important;opacity:1!important}html body .on>span,html body .on > span{color:#2fb3cf!important;opacity:1!important}.nf-trust h4,.nf-legal-col h4,.nf-explore h4,.nf-legal{color:#94a3b8!important}:where(a:not([class])){color:var(--accent,#22d3ee)}:where(a:not([class])):hover{color:#67e8f9}p a:not([class]),li a:not([class]),.nf-legal a,span>a:not([class]){text-decoration:underline!important;text-underline-offset:2px}:where(a,button,select,input,[tabindex]):focus-visible{outline:2px solid var(--accent,#22d3ee);outline-offset:2px}html{scrollbar-width:thin;scrollbar-color:rgba(148,163,184,.28) transparent}::-webkit-scrollbar{width:8px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(148,163,184,.22);border-radius:8px}::-webkit-scrollbar-thumb:hover{background:rgba(34,211,238,.45)}/* A11Y_END */

@@ -1,0 +1,79 @@
+/* DESKTOP_NAV_20261015 — EXACT KILL FOR THE LEFT RAIL BUTTON */
+#dnav { display: none; }
+
+/* ==============================================
+   KILL THE FLOATING LEFT RAIL BUTTON — EXACT MATCH
+   ============================================== */
+button[style*="position: fixed"][style*="left: 0"],
+button[style*="z-index: 95"],
+div[style*="position: fixed"][style*="left: 0"][style*="top: 50%"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  transform: none !important;
+}
+
+/* Also by dimensions — 14px wide × 64px tall at left edge */
+body > button:first-child,
+body > div[style*="width: 14px"],
+body > button[style*="height: 64px"] {
+  display: none !important;
+}
+
+/* Legacy fallback suppression */
+.sidebar-column, .desktop-layout>.sidebar-column,
+.sidebar-toggle, .old-side-toggle, .rail-toggle,
+.drawer, .drawer-backdrop, .burger-btn {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+@media(min-width:1100px){
+  :root{--header-h:64px!important;--hdr-h:64px!important;--nmw-rail:0!important}
+  html body{padding-left:0!important;padding-top:64px!important}
+  
+  html body .header, html body .drawer, html body .drawer-backdrop,
+  html body .bottom-nav, html body #bottom-nav-mount, html body .burger-btn,
+  .sidebar-column {
+    display: none !important;
+  }
+
+  /* CLEAN TOP NAV — ONLY THIS SHOWS */
+  #dnav{
+    display:flex;align-items:center;position:fixed;top:0;left:0;right:0;
+    height:64px;z-index:1001;padding:0 24px;box-sizing:border-box;
+    background:var(--bg,#0B0F0E);border-bottom:1px solid var(--border,#1f2a26);
+  }
+
+  #dnav .dn-brand{display:flex;align-items:baseline;gap:0;margin-right:24px;text-decoration:none;color:var(--text,#F2F2F0);white-space:nowrap}
+  #dnav .dn-brand b{font-weight:900;font-size:20px;letter-spacing:-.02em}
+  #dnav .dn-brand i{font-weight:400;font-style:italic;font-size:20px;color:var(--accent,#3DDC84)}
+  #dnav .dn-beta{align-self:center;margin-left:8px;font-size:.6rem;font-weight:700;letter-spacing:.08em;padding:2px 6px;border-radius:4px;background:rgba(61,220,132,.1);color:var(--accent,#3DDC84)}
+
+  #dnav .dn-links{display:flex;align-items:stretch;height:100%;gap:4px}
+  #dnav .dn-links a{position:relative;display:flex;align-items:center;padding:0 14px;color:var(--text-muted,#9CA3A0);text-decoration:none;font-weight:600;font-size:.93rem}
+  #dnav .dn-links a:hover{color:var(--text,#fff)}
+  #dnav .dn-links a.active{color:var(--accent,#3DDC84)}
+  #dnav .dn-links a.active::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;background:var(--accent,#3DDC84)}
+
+  #dnav .dn-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  #dnav .dn-icon{width:38px;height:38px;border-radius:6px;border:1px solid var(--border,#2a3340);background:var(--bg-card,#141b18);color:var(--text,#fff);display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;padding:0}
+  #dnav .dn-icon:hover, #dnav .dn-icon.active{border-color:var(--accent,#3DDC84);color:var(--accent,#3DDC84)}
+}
+
+/* SIDEBAR_ALL_20261015: desktop only. Legacy rule above hid every .sidebar-column; restore the page sidebars at 1100px+. Mobile and drawer untouched. */
+@media(min-width:1100px){
+html body aside.sidebar-column{display:block!important;visibility:visible!important;opacity:1!important}
+html body aside.sidebar-column .sidebar-card{display:block!important;visibility:visible!important}
+}
+
+/* SIDEBAR_SPEC_20261015: desktop only. Beat the legacy ".desktop-layout > .sidebar-column" hide rule (0,2,0) on Matches/Edges. */
+@media(min-width:1100px){
+html body .desktop-layout > aside.sidebar-column{display:block!important;visibility:visible!important;opacity:1!important}
+html body .desktop-layout > aside.sidebar-column .sidebar-card{display:block!important;visibility:visible!important}
+}
