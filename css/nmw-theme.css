@@ -77,3 +77,16 @@ details>summary{min-height:24px;padding-top:4px;padding-bottom:4px;box-sizing:bo
 .nf-legal a,a.nf-rec,.disclaimer a,.th-panel a,.hv2-legal a,body.has-mn>div>a,main.page>div>a,.hiw-fold p>a,.page.hiw li>a{padding-top:6px;padding-bottom:6px;margin-top:-6px;margin-bottom:-6px}
 a.hv2-chip,header.header>a,main.main-column>div>a{min-height:24px;box-sizing:border-box}body.has-mn>div>button{min-width:24px;min-height:24px}
 /* A11Y_TAP2_20261024 */
+
+/* CALM_20261030: calmer palette site-wide (feedback: harsh cyan on black, hard-to-read grey text) */
+:root{--bg:#0B1220!important;--bg-card:#111A2E!important;--card-bg:#111A2E!important;--bg-elev:#14203A!important;--bg-card-hover:#16233F!important;
+--text:#E8EDF5!important;--text-muted:#B8C3D3!important;--text-dim:#A9B4C6!important;--mut:#A9B4C6!important;
+--border:#1E2A44!important;--line:#1E2A44!important;--card-border:#22304D!important;--border-strong:#2A3756!important}
+html,body{background:#0B1220!important;color:#E8EDF5}
+[style*="color:#94a3b8"],[style*="color: #94a3b8"],[style*="color:#8aa0b8"],[style*="color: #8aa0b8"],[style*="color:#64748b"],[style*="color: #64748b"]{color:#A9B4C6!important}
+@media (max-width:600px){body{font-size:16px}}
+/* CALM2_20261030: match the dark-mode rule's own selector so the calm palette wins (no grid, softer navy) */
+html:not([data-theme="light"]),html:not([data-theme="light"]) body{--bg:#0B1220!important;--bg-card:#111A2E!important;--card-bg:#111A2E!important;--bg-elev:#14203A!important;--bg-card-hover:#16233F!important;
+--text:#E8EDF5!important;--text-muted:#B8C3D3!important;--text-dim:#A9B4C6!important;--mut:#A9B4C6!important;
+--border:#1E2A44!important;--line:#1E2A44!important;--card-border:#22304D!important;--border-strong:#2A3756!important}
+html:not([data-theme="light"]) body{background:#0B1220!important;background-color:#0B1220!important;background-image:none!important}
